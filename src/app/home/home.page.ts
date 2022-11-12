@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import SwiperCore, { Pagination } from 'swiper';
+import { IonicSlides } from '@ionic/angular';
+SwiperCore.use([Pagination, IonicSlides]);
 
 @Component({
   selector: 'app-home',
@@ -7,6 +10,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  private slides: any;
 
+  constructor() { }
+
+  setSwiperInstance(swiper: any) {
+    this.slides = swiper;
+  }
 }
