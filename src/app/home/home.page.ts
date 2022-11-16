@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+
+import { IonicSlides, NavController } from '@ionic/angular';
+
 import SwiperCore, { Pagination } from 'swiper';
-import { IonicSlides } from '@ionic/angular';
 SwiperCore.use([Pagination, IonicSlides]);
 
 @Component({
@@ -12,9 +14,20 @@ export class HomePage {
 
   private slides: any;
 
-  constructor() { }
+  constructor(
+    private navCtrl: NavController,
+  ) { }
 
   setSwiperInstance(swiper: any) {
     this.slides = swiper;
   }
+
+  openSelectTimer() {
+
+  }
+
+  goToBreathe() {
+    this.navCtrl.navigateForward('/home/breathe');
+  }
+
 }

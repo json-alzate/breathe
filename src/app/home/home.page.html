@@ -3,15 +3,31 @@
     <ng-template swiperSlide>
       <div class="slide-container slide-one">
 
-        <ion-text color="light">
-          <h1>Relajación</h1>
-          <p>bla bla bla bla</p>
-        </ion-text>
+        <div class="title">
+          <ion-text color="light">
+            <h1>Relajación</h1>
+            <p>Aquieta la mente y alivia el estrés</p>
+          </ion-text>
+        </div>
 
         <div class="play-container">
-          <ion-button size="large" color="dark" class="breathing-button">
+          <ion-button size="large" color="dark" class="breathing-button" (click)="goToBreathe()">
             <ion-icon slot="icon-only" name="play"></ion-icon>
           </ion-button>
+        </div>
+
+        <div class="description">
+
+          <ion-text color="light">
+            <h6>Técnica</h6>
+            <p>Exhalación prolongada (4-6)</p>
+          </ion-text>
+
+          <ion-button color="light" (click)="openSelectTimer()" size="large" fill="outline" shape="round">
+            <ion-icon slot="start" name="timer-outline"></ion-icon>
+            2 min
+          </ion-button>
+
         </div>
 
       </div>

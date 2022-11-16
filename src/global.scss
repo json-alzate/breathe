@@ -28,3 +28,28 @@
 @import "~swiper/scss";
 @import "~swiper/scss/pagination";
 @import "~@ionic/angular/css/ionic-swiper";
+
+/* Background breathe */
+.slide-one {
+    background-image: linear-gradient(to right bottom, #01524a, #006373, #0070aa, #0076db, #646cf3);
+}
+
+.slide-two {
+    background-image: linear-gradient(to right bottom, #004d09, #00593b, #006266, #006889, #006a9c);
+}
+
+.slide-three {
+    background-image: linear-gradient(to right bottom, #5955a0, #82458c, #9a376e, #a3324c, #9d3a2b);
+}
+
+.slide-four {
+    background-image: linear-gradient(to right bottom, #313600, #2f3f00, #2a4800, #1f5100, #025b01);
+}
+
+.slide-five {
+    background-image: linear-gradient(to right bottom, #633f0d, #883825, #a52e50, #ab398b, #835bcb);
+}
+
+.slide-six {
+    background-image: linear-gradient(to right bottom, #215b8d, #2861a6, #4264be, #6564d1, #8d60df);
+}

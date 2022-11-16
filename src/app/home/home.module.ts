@@ -4,6 +4,8 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
+import * as fromComponents from './components/';
+
 import { HomePageRoutingModule } from './home-routing.module';
 
 import { SwiperModule } from 'swiper/angular';
@@ -16,6 +18,12 @@ import { SwiperModule } from 'swiper/angular';
     HomePageRoutingModule,
     SwiperModule
   ],
-  declarations: [HomePage]
+  declarations: [
+    HomePage,
+    ...fromComponents.COMPONENTS,
+  ],
+  entryComponents: [
+    ...fromComponents.ENTRY_COMPONENTS
+  ]
 })
 export class HomePageModule { }

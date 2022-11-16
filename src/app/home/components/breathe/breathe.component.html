@@ -1,0 +1,22 @@
+<ion-content>
+
+  <div class="div-container" [class]="classSlide">
+
+    <h1>Relaxer</h1>
+
+    <div class="container" [ngClass]="{'grow': status === 'in', 'shrink': status === 'out'}">
+      <div class="circle"></div>
+
+      <p>{{ text }}</p>
+
+      <div class="pointer-container">
+        <span class="pointer"></span>
+      </div>
+
+      <div class="gradient-circle"></div>
+    </div>
+  </div>
+
+
+
+</ion-content>
