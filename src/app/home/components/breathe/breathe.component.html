@@ -1,10 +1,20 @@
-<ion-content>
+<ion-content [fullscreen]="true">
 
-  <div class="div-container" [class]="classSlide">
+  <div class="div-container ion-padding" [class]="classSlide">
 
-    <h1>Relaxer</h1>
+    <!-- <h1 style="display: block;">bla bla</h1> -->
 
-    <div class="container" [ngClass]="{'grow': status === 'in', 'shrink': status === 'out'}">
+    <div class="breathe">
+
+      <div class="container-breathe">
+        <div class="pointer-breathe-container"></div>
+      </div>
+    </div>
+
+
+
+
+    <!-- <div class="container" [ngClass]="{'grow': status === 'in', 'shrink': status === 'out'}">
       <div class="circle"></div>
 
       <p>{{ text }}</p>
@@ -14,9 +24,8 @@
       </div>
 
       <div class="gradient-circle"></div>
-    </div>
+    </div> -->
+
   </div>
-
-
 
 </ion-content>

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BreatheComponent implements OnInit {
 
-  classSlide = 'slide-one';
+  classSlide = 'slide-one-up';
 
   status = 'in' || 'out' || 'hold';
   text = 'Breathe In!';
