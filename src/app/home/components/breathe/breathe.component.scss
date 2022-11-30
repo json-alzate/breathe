@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    flex-direction: column;
 }
 
 h1 {
@@ -16,19 +17,50 @@ h1 {
         position: relative;
         height: 40vh;
         width: 40vh;
-        background-color: black;
+        // background-color: black;
         border-radius: 50%;
+
         .pointer-breathe-container {
             position: absolute;
             left: 50%;
             background-color: #fff;
             width: 5px;
             height: 20vh;
-            animation: rotate 10.5s linear forwards infinite;
+            animation: rotate 10s linear forwards infinite;
             transform-origin: bottom center;
         }
     }
 }
+
+.pointer {
+    background-color: #fff;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    display: block;
+}
+
+/** 
+    * id: 0  = 
+*/
+
+.breathe-4-6 {
+    background: conic-gradient(#55b7a4 0%, #4ca493 40%, #336d62 40%, #2a5b52 100%);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*
+
+
 
 .container {
     display: flex;
@@ -61,14 +93,6 @@ h1 {
     position: absolute;
     top: -10px;
     left: -10px;
-}
-
-.pointer {
-    background-color: #fff;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
-    display: block;
 }
 
 .pointer-container {
@@ -118,3 +142,6 @@ h1 {
         transform: scale(1);
     }
 }
+
+
+*/

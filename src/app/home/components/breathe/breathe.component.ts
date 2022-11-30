@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-breathe',
@@ -7,38 +8,81 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BreatheComponent implements OnInit {
 
-  classSlide = 'slide-one-up';
+  // descripción del id para la rutina de respiración
+  /*
+  * 0: 4-6
+  * */
 
-  status = 'in' || 'out' || 'hold';
-  text = 'Breathe In!';
 
-  totalTime = 7500;
-  breatheTime = (this.totalTime / 5) * 2;
-  holdTime = this.totalTime / 5;
-  constructor() { }
+  classBreathe = '';
+  classBreatheBackground = '';
+  status: 'exhale' | 'inhale' | 'hold' = 'inhale';
+
+  // se utiliza para saber cuanto tiempo le queda al estado actual de la respiración
+  // util para cuando se pause por ejemplo
+  counterInterval = 0;
+  // el indice que indica el estado actual de la respiración en el ciclo
+  cicleIndex = 0;
+  cicle: number[] = [];
+  cicleStatus: string[] = [];
+
+  intervalObject: any;
+
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+  ) {
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    switch (id) {
+      case '0':
+        this.classBreathe = 'breathe-4-6';
+        this.classBreatheBackground = 'breathe-4-6-background';
+        this.cicle = [4, 6];
+        this.cicleStatus = ['inhale', 'exhale'];
+        this.startBreathe();
+        break;
+    }
+
+  }
 
   ngOnInit() {
 
-    setInterval(this.breathAnimation(), this.totalTime);
+  }
+
+
+  startBreathe() {
+    const cicleSeconds = this.cicle[this.cicleIndex];
+    this.counterInterval = cicleSeconds;
+    this.status = this.cicleStatus[this.cicleIndex] as any;
+
+    this.intervalObject = setInterval(() => {
+      this.counterInterval--;
+      console.log(this.counterInterval);
+
+      if (this.counterInterval === 0) {
+        this.nextStep();
+      }
+    }
+      , 1000);
+
+  }
+
+
+  nextStep() {
+
+    // clear interval
+    clearInterval(this.intervalObject);
+
+    this.cicleIndex++;
+    if (this.cicleIndex === this.cicle.length) {
+      this.cicleIndex = 0;
+    }
+
+    this.startBreathe();
   }
 
 
 
-  breathAnimation();
-
-  breathAnimation() {
-    this.text = 'Breathe In!';
-    this.status = 'in';
-
-    setTimeout(() => {
-      this.text = 'Hold';
-
-      setTimeout(() => {
-        this.text = 'Breathe Out!';
-        this.status = 'out';
-      }, this.holdTime);
-    }, this.breatheTime);
-  }
 
 
 

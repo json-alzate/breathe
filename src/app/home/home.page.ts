@@ -27,7 +27,7 @@ export class HomePage {
   }
 
   goToBreathe() {
-    this.navCtrl.navigateForward('/home/breathe');
+    this.navCtrl.navigateForward('/home/breathe/0');
   }
 
 }

@@ -11,7 +11,7 @@ const routes: Routes = [
     component: HomePage,
   },
   {
-    path: 'breathe',
+    path: 'breathe/:id',
     component: BreatheComponent,
   },
 

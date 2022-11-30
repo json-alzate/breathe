@@ -1,15 +1,19 @@
 <ion-content [fullscreen]="true">
 
-  <div class="div-container ion-padding" [class]="classSlide">
+  <div class="div-container ion-padding" [class]="classBreatheBackground">
 
-    <!-- <h1 style="display: block;">bla bla</h1> -->
+    <h1>{{ status }}</h1>
+
 
     <div class="breathe">
 
-      <div class="container-breathe">
-        <div class="pointer-breathe-container"></div>
+      <div class="container-breathe" [class]="classBreathe">
+        <div class="pointer-breathe-container">
+          <span class="pointer"></span>
+        </div>
       </div>
     </div>
+
 
 
 
@@ -27,5 +31,11 @@
     </div> -->
 
   </div>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>
