@@ -1,3 +1,28 @@
+ion-toolbar {
+    position: absolute;
+    --background: transparent;
+    --padding-top: calc(20px + var(--ion-safe-area-top, 0));
+    --padding-start: 15px;
+    --padding-end: 15px;
+
+    ion-buttons {
+        &.btn-next {
+            display: none;
+            &.visible {
+                display: block;
+            }
+        }
+    }
+}
+
+.row-breathe {
+    margin-top: 15vh;
+    ion-col {
+        display: flex;
+        justify-content: center;
+    }
+}
+
 .div-container {
     height: 100vh;
     display: flex;
@@ -5,11 +30,6 @@
     align-items: center;
     text-align: center;
     flex-direction: column;
-}
-
-h1 {
-    margin-top: 0;
-    padding-top: 10vh;
 }
 
 .breathe {
@@ -55,6 +75,13 @@ h1 {
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+.fab-play {
+    margin-bottom: 8vh;
+    ion-fab-button {
+        --box-shadow: none;
     }
 }
 

@@ -82,8 +82,9 @@ export class BreatheComponent implements OnInit {
   }
 
 
+  close() {
 
-
+  }
 
 
 }
