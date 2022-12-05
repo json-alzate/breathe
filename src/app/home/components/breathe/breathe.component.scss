@@ -37,17 +37,25 @@ ion-toolbar {
         position: relative;
         height: 40vh;
         width: 40vh;
-        // background-color: black;
         border-radius: 50%;
-
         .pointer-breathe-container {
             position: absolute;
             left: 50%;
             background-color: #fff;
-            width: 5px;
+            width: 0px;
             height: 20vh;
             animation: rotate 10s linear forwards infinite;
             transform-origin: bottom center;
+        }
+
+        .background-circle {
+            // background-color: #646cf3;
+            height: 90%;
+            width: 90%;
+            border-radius: 50%;
+            position: absolute;
+            top: 5%;
+            left: 5%;
         }
     }
 }
