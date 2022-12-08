@@ -1,3 +1,11 @@
+:host {
+    --primary-color: lightsteelblue;
+    --secondary-color: lightpink;
+    --large: 30vh;
+    --small: 5vh;
+    --timing: 8s;
+}
+
 ion-toolbar {
     position: absolute;
     --background: transparent;
@@ -49,7 +57,7 @@ ion-toolbar {
         }
 
         .background-circle {
-            // background-color: #646cf3;
+            background-color: #646cf3;
             height: 90%;
             width: 90%;
             border-radius: 50%;
@@ -68,6 +76,26 @@ ion-toolbar {
     display: block;
 }
 
+.breathe-animation-container {
+    position: absolute;
+    height: 35vh;
+    width: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    top: 8%;
+    left: 8%;
+    .breathe-animation {
+        background-color: var(--primary-color);
+        width: var(--small);
+        height: var(--small);
+        border-radius: 50%;
+        display: inline-block;
+        animation: breath var(--timing) ease infinite none running;
+    }
+}
+
 /** 
     * id: 0  = 
 */
@@ -83,6 +111,16 @@ ion-toolbar {
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes breath {
+    25%,
+    50% {
+        background-color: var(--secondary-color);
+        width: var(--large);
+        height: var(--large);
+        border-radius: calc(var(--large) / 2);
     }
 }
 

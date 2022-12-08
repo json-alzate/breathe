@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
@@ -31,6 +31,8 @@ export class BreatheComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private renderer: Renderer2,
+    private elementRef: ElementRef
   ) {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     switch (id) {
@@ -79,6 +81,12 @@ export class BreatheComponent implements OnInit {
     }
 
     this.startBreathe();
+  }
+
+  // Cambia la velocidad de la animación
+  setTimingAnimation() {
+    const rootElement = this.elementRef.nativeElement;
+    this.renderer.setAttribute(rootElement, 'style', '--timing: 1s;');
   }
 
 

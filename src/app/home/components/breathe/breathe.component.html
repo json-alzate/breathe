@@ -29,8 +29,13 @@
           <!-- <h1>{{ status }}</h1> -->
           <div class="breathe">
 
+            <div class="breathe-animation-container">
+              <div class="breathe-animation"></div>
+            </div>
+
             <div class="container-breathe" [class]="classBreathe">
-              <div class="background-circle breathe-4-6-background"></div>
+              <div class="background-circle">
+              </div>
               <div class="pointer-breathe-container">
                 <span class="pointer"></span>
               </div>
@@ -64,7 +69,7 @@
   </div>
 
   <ion-fab vertical="bottom" horizontal="center" slot="fixed" class="fab-play">
-    <ion-fab-button color="dark">
+    <ion-fab-button color="dark" (click)="setTimingAnimation()">
       <ion-icon name="pause-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
