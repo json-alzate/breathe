@@ -56,3 +56,11 @@
 .slide-six {
     background-image: linear-gradient(to right bottom, #215b8d, #2861a6, #4264be, #6564d1, #8d60df);
 }
+
+.action-sheet-timer .action-sheet-group {
+    background: #262626;
+}
+
+.action-sheet-timer .action-sheet-group .action-sheet-cancel::after {
+    background: #262626;
+}
