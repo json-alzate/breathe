@@ -26,11 +26,11 @@
 
       <ion-row class="row-breathe">
         <ion-col size="12">
-          <!-- <h1>{{ status }}</h1> -->
           <div class="breathe">
 
             <div class="breathe-animation-container">
-              <div class="breathe-animation"></div>
+              <div class="breathe-animation"
+                [ngClass]="{'breathe-in': status === 'inhale', 'breathe-out': status === 'exhale'}"></div>
             </div>
 
             <div class="container-breathe" [class]="classBreathe">
@@ -43,33 +43,21 @@
           </div>
 
         </ion-col>
+        <ion-col size="12">
+          <ion-text color="light">
+            <h1>{{ status }}</h1>
+          </ion-text>
+        </ion-col>
       </ion-row>
 
 
     </ion-grid>
 
 
-
-
-
-
-
-    <!-- <div class="container" [ngClass]="{'grow': status === 'in', 'shrink': status === 'out'}">
-      <div class="circle"></div>
-
-      <p>{{ text }}</p>
-
-      <div class="pointer-container">
-        <span class="pointer"></span>
-      </div>
-
-      <div class="gradient-circle"></div>
-    </div> -->
-
   </div>
 
   <ion-fab vertical="bottom" horizontal="center" slot="fixed" class="fab-play">
-    <ion-fab-button color="dark" (click)="setTimingAnimation()">
+    <ion-fab-button color="dark">
       <ion-icon name="pause-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>

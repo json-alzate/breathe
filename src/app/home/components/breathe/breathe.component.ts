@@ -1,5 +1,8 @@
 import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
+import { interval } from 'rxjs';
+
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-breathe',
@@ -32,7 +35,8 @@ export class BreatheComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private renderer: Renderer2,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private navController: NavController
   ) {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     switch (id) {
@@ -54,6 +58,10 @@ export class BreatheComponent implements OnInit {
 
   startBreathe() {
     const cicleSeconds = this.cicle[this.cicleIndex];
+
+    // modifica la velocidad de la animación para que coincida con el tiempo del estado actual
+    this.setTimingAnimation(cicleSeconds);
+
     this.counterInterval = cicleSeconds;
     this.status = this.cicleStatus[this.cicleIndex] as any;
 
@@ -69,7 +77,7 @@ export class BreatheComponent implements OnInit {
 
   }
 
-
+  // pasa al siguiente estado de la respiración
   nextStep() {
 
     // clear interval
@@ -84,14 +92,16 @@ export class BreatheComponent implements OnInit {
   }
 
   // Cambia la velocidad de la animación
-  setTimingAnimation() {
+  setTimingAnimation(seconds: number) {
     const rootElement = this.elementRef.nativeElement;
-    this.renderer.setAttribute(rootElement, 'style', '--timing: 1s;');
+    this.renderer.setAttribute(rootElement, 'style', '--timing: ' + seconds + 's;');
   }
 
 
+  // cierra la rutina de respiración y cancela el intervalo
   close() {
-
+    clearInterval(this.intervalObject);
+    this.navController.navigateBack('/home');
   }
 
 
