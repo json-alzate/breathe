@@ -16,6 +16,7 @@ ion-toolbar {
     ion-buttons {
         &.btn-next {
             display: none;
+
             &.visible {
                 display: block;
             }
@@ -25,6 +26,7 @@ ion-toolbar {
 
 .row-breathe {
     margin-top: 15vh;
+
     ion-col {
         display: flex;
         justify-content: center;
@@ -42,11 +44,13 @@ ion-toolbar {
 
 .breathe {
     position: relative;
+
     .container-breathe {
         position: relative;
         height: 40vh;
         width: 40vh;
         border-radius: 50%;
+
         .pointer-breathe-container {
             position: absolute;
             left: 50%;
@@ -87,6 +91,7 @@ ion-toolbar {
     z-index: 1;
     top: 8%;
     left: 8%;
+
     .breathe-animation {
         background-color: var(--primary-color);
         width: var(--small);
@@ -94,9 +99,11 @@ ion-toolbar {
         border-radius: 50%;
         display: inline-block;
     }
+
     .breathe-animation.breathe-in {
         animation: inhale var(--timing) ease 1;
     }
+
     .breathe-animation.breathe-out {
         animation: exhale var(--timing) ease 1;
     }
@@ -104,6 +111,7 @@ ion-toolbar {
 
 .fab-play {
     margin-bottom: 8vh;
+
     ion-fab-button {
         --box-shadow: none;
     }
@@ -119,6 +127,10 @@ ion-toolbar {
 
 // animations
 
+.pause-animation {
+    animation-play-state: paused !important;
+}
+
 @keyframes rotate {
     from {
         transform: rotate(0deg);
@@ -130,6 +142,7 @@ ion-toolbar {
 }
 
 @keyframes breath {
+
     25%,
     50% {
         background-color: var(--secondary-color);
