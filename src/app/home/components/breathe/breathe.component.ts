@@ -80,23 +80,20 @@ export class BreatheComponent implements OnInit {
       this.cicleSeconds = this.cicle[this.cicleIndex];
       // modifica la velocidad de la animación para que coincida con el tiempo del estado actual
       this.setTimingAnimation(this.cicleSeconds);
-      this.counterInterval = this.cicleSeconds;
+      this.counterInterval = this.cicleSeconds * 10;
+    } else {
+      this.resumeAnimation();
     }
-
 
     this.intervalObject = setInterval(() => {
 
-      if (isResume) {
-
-        this.resumeAnimation();
-      }
       this.counterInterval--;
       console.log(this.counterInterval);
       if (this.counterInterval <= 0) {
         this.nextStep();
       }
     }
-      , 1000);
+      , 100);
 
   }
 
@@ -184,15 +181,9 @@ export class BreatheComponent implements OnInit {
     }
   }
 
+
+
   resumeAnimation() {
-
-
-    const element = this.elementRef.nativeElement.querySelector('.pointer-breathe-container');
-    // this.renderer.removeClass(element, 'pause-animation');
-    if (element) {
-      element.style.animationPlayState = 'running';
-    }
-
 
     const element2 = this.elementRef.nativeElement.querySelector('.breathe-animation.breathe-in');
     if (element2) {
@@ -202,6 +193,13 @@ export class BreatheComponent implements OnInit {
     if (element3) {
       element3.style.animationPlayState = 'running';
     }
+
+    const element = this.elementRef.nativeElement.querySelector('.pointer-breathe-container');
+    // this.renderer.removeClass(element, 'pause-animation');
+    if (element) {
+      element.style.animationPlayState = 'running';
+    }
+
   }
 
 
