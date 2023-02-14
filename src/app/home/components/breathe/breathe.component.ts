@@ -1,5 +1,5 @@
 import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { interval } from 'rxjs';
 
 import { NavController } from '@ionic/angular';
@@ -83,17 +83,16 @@ export class BreatheComponent implements OnInit {
       this.counterInterval = this.cicleSeconds * 10;
     } else {
       this.resumeAnimation();
+      this.counterInterval--;
     }
 
     this.intervalObject = setInterval(() => {
-
       this.counterInterval--;
       console.log(this.counterInterval);
       if (this.counterInterval <= 0) {
         this.nextStep();
       }
-    }
-      , 100);
+    }, 100);
 
   }
 
